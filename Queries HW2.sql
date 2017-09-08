@@ -1,3 +1,4 @@
+--Chirs Spaulding 
 -- Queries
 
 --4c use Query to display all countries that border Germany. 

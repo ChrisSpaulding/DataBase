@@ -1,4 +1,4 @@
---SQL File for HW2 Chris Spaulding
+--SQL File for HW2 Chris Spaulding Table set up
 CREATE TABLE Countries (
 name VARCHAR(20) NOT NULL,
 latitude INT,
