@@ -35,5 +35,90 @@ Insert into Countries(name,latitude,longitude,area, population, gdp, gdpyear) VA
 --France
 Insert into Countries(name,latitude,longitude,area, population, gdp, gdpyear) VALUES ('France', 4600,200, 643801, 67106161, 2699, 2016);
 
---Switerland
-Insert into Countries(name,latitude,longitude,area, population, gdp, gdpyear) VALUES ('Switerland', 4700,700,41277,8236303,493,2016);
+--Switzerland
+Insert into Countries(name,latitude,longitude,area, population, gdp, gdpyear) VALUES ('Switzerland', 4700,700,41277,8236303,493,2016);
+
+
+--create borders table
+
+CREATE TABLE Borders (country1 VARCHAR(20), country2 VARCHAR(20) , PRIMARY KEY (country1,country2),
+FOREIGN KEY (country1) REFERENCES Countries(name),
+FOREIGN KEY (country2) REFERENCES Countries(name)
+);
+
+
+--Germany Borders
+Insert into Borders(country1,country2) VALUES('Germany','Czechia');
+
+Insert into Borders(country1,country2) VALUES('Germany','Austria');
+
+
+Insert into Borders(country1,country2) VALUES('Germany','Switzerland');
+
+Insert into Borders(country1,country2) VALUES('Germany','France');
+
+Insert into Borders(country1,country2) VALUES('Germany','Luxemburg');
+
+Insert into Borders(country1,country2) VALUES('Germany','Belgium');
+Insert into Borders(country1,country2) VALUES('Germany','Netherlands');
+
+--Netherlands
+
+
+Insert into Borders(country1,country2) VALUES('Netherlands','Germany');
+
+Insert into Borders(country1,country2) VALUES('Netherlands','Belgium');
+
+--BELGIUM
+Insert into Borders(country1,country2) VALUES('Belgium','France');
+Insert into Borders(country1,country2) VALUES('Belgium','Luxemburg');
+Insert into Borders(country1,country2) VALUES('Belgium','Netherlands');
+
+--Luxemburg
+
+Insert into Borders(country1,country2) VALUES('Luxemburg','Belgium');
+Insert into Borders(country1,country2) VALUES('Luxemburg','France');
+Insert into Borders(country1,country2) VALUES('Luxemburg','Germany');
+
+--Poland
+
+Insert into Borders(country1,country2) VALUES('Poland','Germany');
+Insert into Borders(country1,country2) VALUES('Poland','Czechia');
+
+--Czechia
+INSERT into Borders (country1, country2)
+VALUES('Czechia','Poland');
+INSERT into Borders (country1, country2)
+VALUES('Czechia','Austria');
+INSERT into Borders (country1, country2)
+VALUES('Czechia','Germany');
+
+--Austria
+INSERT into Borders (country1, country2)
+VALUES('Austria','Czechia');
+INSERT into Borders (country1, country2)
+VALUES('Austria','Switzerland');
+INSERT into Borders (country1, country2)
+VALUES('Austria','Germany');
+
+--France
+INSERT into Borders (country1, country2)
+VALUES('France','Luxemburg');
+INSERT into Borders (country1, country2)
+VALUES('France','Germany');
+INSERT into Borders (country1, country2)
+VALUES('France','Switzerland');
+INSERT into Borders (country1, country2)
+VALUES('France','Belgium');
+
+--Switzerland
+
+INSERT into Borders (country1, country2)
+VALUES('Switzerland','Austria');
+INSERT into Borders (country1, country2)
+VALUES('Switzerland','France');
+INSERT into Borders (country1, country2)
+VALUES('Switzerland','Germany');
+
+
+
