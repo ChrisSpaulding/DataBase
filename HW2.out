@@ -1,0 +1,44 @@
+postgres=#
+postgres=# --Chirs Spaulding
+postgres=# -- Queries
+postgres=#
+postgres=# --4c use Query to display all countries that border Germany.
+postgres=#
+postgres=# Select country2  from Borders where 'Germany'=country1;
+  country2
+-------------
+ Poland
+ Czechia
+ Austria
+ Switzerland
+ France
+ Luxemburg
+ Belgium
+ Netherlands
+(8 rows)
+
+
+postgres=#
+postgres=# --4d
+postgres=# Select name from Countries where population>35000000;
+  name
+---------
+ Germany
+
+
+postgres=#
+postgres=# --4e
+postgres=# Select country2 from Borders
+postgres-# Join countries on
+postgres-# country2 = Countries.name
+postgres-# where
+postgres-# country1= 'Germany' and
+postgres-# countries.population>35000000;
+ country2
+----------
+ Poland
+ France
+(2 rows)
+
+
+postgres=#
