@@ -73,7 +73,7 @@ CREATE Table flight(
 );
 
 
-
+#issue 
 ALTER TABLE airport
 ADD FOREIGN KEY (Abriviation) REFERENCES City(City_Abrv);
 

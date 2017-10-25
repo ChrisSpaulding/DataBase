@@ -1,4 +1,4 @@
-﻿CITY_NAME,Abriviation,CITY_MARKET_ID,WAC,STATE_ABR
+CITY_NAME,Abriviation,CITY_MARKET_ID,WAC,STATE_ABR
 Ambler,ABL,30139,1,AK
 Kodiak,ADQ,30070,1,AK
 Akiak,AKI,30241,1,AK
@@ -157,6 +157,7 @@ Washington,DCA,30852,38,VA
 Newark,EWR,31703,21,NJ
 Fort Lauderdale,FLL,32467,33,FL
 White Plains,HPN,31703,22,NY
+Washington,IAD,30852,38,VA
 Jacksonville,JAX,31136,33,FL
 New York,JFK,31703,22,NY
 Las Vegas,LAS,32211,85,NV
@@ -168,6 +169,7 @@ Chicago,ORD,30977,41,IL
 Worcester,ORH,33933,13,MA
 West Palm Beach/Palm Beach,PBI,34027,33,FL
 Providence,PVD,30721,15,RI
+Portland,PWM,34321,12,ME
 Richmond,RIC,34524,38,VA
 Rochester,ROC,34576,22,NY
 San Diego,SAN,33570,91,CA
@@ -185,6 +187,7 @@ Wichita,ICT,30928,62,KS
 Indianapolis,IND,32337,42,IN
 Minneapolis,MSP,31650,63,MN
 Omaha,OMA,33316,65,NE
+San Antonio,SAT,33214,74,TX
 Tucson,TUS,30436,81,AZ
 Honolulu,HNL,32134,2,HI
 Kapalua,JHM,32492,2,HI
@@ -233,6 +236,7 @@ Katmai Lodge,VZY,35700,1,AK
 Chicken,CKX,31036,1,AK
 Chisana,CZN,31245,1,AK
 Tok,TKJ,35236,1,AK
+Anchorage,MRI,30299,1,AK
 Skwentna,SKW,34863,1,AK
 Tyonek,TYE,35406,1,AK
 Granite Point,XWA,35934,1,AK
@@ -244,6 +248,7 @@ Blue Bell,BBX,30504,23,PA
 Bridgeport,BDR,30535,11,CT
 Bedford,BED,30540,13,MA
 Block Island,BID,30613,15,RI
+Cleveland,BKL,30647,44,OH
 Belmar/Farmingdale,BLM,30670,21,NJ
 Buffalo,BUF,30792,22,NY
 Beverly,BVY,30815,13,MA
@@ -267,10 +272,12 @@ Lewisburg,LWB,33121,39,WV
 Lawrence,LWM,33125,13,MA
 Marshfield,MA4,36516,13,MA
 Kansas City,MCI,33198,64,MO
+Chicago,MDW,30977,41,IL
 Islesboro,ME2,36495,12,ME
 Belfast,ME3,36526,12,ME
 Morristown,MMU,33398,21,NJ
 McPherson,MPR,33447,62,KS
+Baltimore,MTN,30852,35,MD
 Montauk Point,MTP,33507,22,NY
 Morrisville,MVL,33535,16,VT
 Berlin,NJ1,33685,21,NJ
@@ -282,19 +289,25 @@ Waterbury,OXC,33987,11,CT
 Princeton,PCT,34044,21,NJ
 Atlanta,PDK,30397,34,GA
 Philadelphia,PHL,34100,23,PA
+Pittsburgh,PIT,30198,23,PA
+Philadelphia,PNE,34100,23,PA
 Portsmouth,PSM,34259,14,NH
 Provincetown,PVC,34306,13,MA
+Chicago,PWK,30977,41,IL
 Reading,RDG,34488,23,PA
 Rutland,RUT,34648,16,VT
 State College,SCE,34711,23,PA
 Louisville,SDF,33044,52,KY
+St. Louis,SUS,31123,64,MO
 Teterboro,TEB,35167,21,NJ
 Trenton,TTN,35356,21,NJ
 Chatham,UBF,35427,13,MA
+Richmond,VA5,34524,38,VA
 Saratoga Springs,VWK,35656,22,NY
 Augusta/Waterville,WVL,30414,12,ME
 Zanesville,ZZV,36361,44,OH
 Nuiqsut,NUI,33767,1,AK
+Homer,09A,30009,1,AK
 Kiluda Bay,A29,30042,1,AK
 Kodiak Island,A43,30056,1,AK
 Red Fox Bay,A76,30089,1,AK
@@ -310,6 +323,7 @@ Old Harbor,OLH,33863,1,AK
 Port Lions,ORI,33934,1,AK
 Sitkinak,SKJ,34855,1,AK
 Seal Bay,SYB,35091,1,AK
+Fairbanks,FBK,31517,1,AK
 Galbraith Lake,GBH,31859,1,AK
 Palmer,PAQ,34013,1,AK
 Prospect Creek,PPC,34218,1,AK
@@ -321,14 +335,18 @@ Atqasuk,ATK,30396,1,AK
 Cape Lisburne,LUR,33111,1,AK
 Point Lay,PIZ,34125,1,AK
 Tin City,TNC,35278,1,AK
+Dallas/Fort Worth,AFW,30194,74,TX
 Scranton/Wilkes-Barre,AVP,30434,23,PA
 Dickinson,DIK,31315,66,ND
 Dover,DOV,31375,31,DE
+Eagle,EGE,31503,82,CO
 Williston,ISN,32389,66,ND
 Kennesaw,QMA,30397,34,GA
 Raleigh/Durham,RDU,34492,36,NC
 CONCORD,USA,32544,36,NC
+Detroit,YIP,31295,43,MI
 Dallas,ADS,30194,74,TX
+Atlanta,ATL,30397,34,GA
 Brownsville,BRO,30747,74,TX
 Chattanooga,CHA,30980,54,TN
 College Station/Bryan,CLL,31049,74,TX
@@ -347,6 +365,7 @@ Laredo,LRD,33038,74,TX
 Mission/McAllen/Edinburg,MFE,33256,74,TX
 Manchester,MHT,30721,14,NH
 Milwaukee,MKE,33342,45,WI
+Jacksonville,NZC,31136,33,FL
 Rockford,RFD,34512,41,IL
 St. Cloud,STC,32556,63,MN
 Statesville,SVH,35054,36,NC
@@ -354,7 +373,9 @@ Syracuse,SYR,35096,22,NY
 Tuscaloosa,TCL,35153,51,AL
 Alexandria,AEX,30185,72,LA
 Asheville,AVL,30431,36,NC
+Phoenix,AZA,30466,81,AZ
 Colorado Springs,COS,30189,82,CO
+Anchorage,EDF,30299,1,AK
 Topeka,FOE,31726,62,KS
 Fort Wayne,FWA,31823,42,IN
 Killeen,GRK,31982,74,TX
@@ -371,6 +392,7 @@ Aspen,ASE,30372,82,CO
 Camarillo,C01,30857,91,CA
 Coeur d'Alene,COE,31098,83,ID
 Coatesville,CTH,31165,23,PA
+Dallas,DAL,30194,74,TX
 Fargo,FAR,31637,66,ND
 Hillsboro,HIO,32136,92,OR
 Houston,HOU,31453,74,TX
@@ -380,6 +402,7 @@ Mount Pleasant,MOP,33429,43,MI
 Monterey,MRY,34922,91,CA
 Mountain View,NUQ,33771,91,CA
 Oakland,OAK,32457,91,CA
+Orlando,ORL,31454,33,FL
 Peach Springs,PGS,30011,81,AZ
 Palm Springs,PSP,34262,91,CA
 Provo,PVU,34314,87,UT
@@ -387,7 +410,9 @@ Redding,RDD,33792,91,CA
 Renton,RNT,34572,93,WA
 Santa Fe,SAF,34674,86,NM
 Santa Barbara,SBA,34689,91,CA
+Phoenix,SCF,30466,81,AZ
 Schenectady,SCH,34713,22,NY
+San Diego,SDM,33570,91,CA
 Salina,SLN,34877,62,KS
 Santa Monica,SMO,32575,91,CA
 Santa Ana,SNA,32575,91,CA
@@ -395,24 +420,32 @@ Van Nuys,VNY,32575,91,CA
 Fayetteville,XNA,31834,71,AR
 Cedar Rapids/Iowa City,CID,31003,61,IA
 Harlingen/San Benito,HRL,32206,74,TX
+Houston,IAH,31453,74,TX
 Augusta,AGS,30208,34,GA
 Appleton,ATW,30408,45,WI
+Seattle,BFI,30559,93,WA
 Birmingham,BHM,30599,51,AL
 Billings,BIL,30620,84,MT
 Boise,BOI,30713,83,ID
 Bozeman,BZN,30849,84,MT
 Columbia,CAE,30868,37,SC
+Columbus,CMH,31066,44,OH
 Casper,CPR,31122,88,WY
+St. Louis,CPS,31123,64,MO
+Columbus,CSG,31150,34,GA
 Duluth,DLH,31337,63,MN
 Panama City,ECP,31481,33,FL
 Flint,FNT,31721,43,MI
 Sioux Falls,FSD,31775,67,SD
+Dallas/Fort Worth,FTW,30194,74,TX
 Spokane,GEG,31884,93,WA
 Green Bay,GRB,31977,45,WI
 Grand Rapids,GRR,31986,43,MI
 Huntsville,HSV,30255,51,AL
+New York,LGA,31703,22,NY
 Lihue,LIH,32982,2,HI
 Harrisburg,MDT,32070,23,PA
+Kansas City,MKC,33198,64,MO
 Melbourne,MLB,33360,33,FL
 Mobile,MOB,30562,51,AL
 Madison,MSN,33485,45,WI
@@ -421,6 +454,7 @@ Oklahoma City,OKC,33851,73,OK
 Norfolk,ORF,33667,38,VA
 Pensacola,PNS,33728,33,FL
 Reno,RNO,34570,85,NV
+Rochester,RST,32547,63,MN
 Fort Myers,RSW,31714,33,FL
 South Bend,SBN,34696,42,IN
 Tallahassee,TLH,35249,33,FL
@@ -432,9 +466,12 @@ Springfield,SGF,34783,64,MO
 Traverse City,TVC,35380,43,MI
 Arlington,JZT,32598,74,TX
 Pontiac,PTK,34275,43,MI
+El Paso,BIF,30615,74,TX
+Fairbanks,EIL,31517,1,AK
 Niagara Falls,IAG,32265,22,NY
 Lexington,LEX,32945,52,KY
 Gastonia,NC1,33619,36,NC
+Norfolk,NGU,33667,38,VA
 Owensboro,OWB,33983,52,KY
 Sanford,SFB,34761,33,FL
 Shreveport,SHV,30476,72,LA
@@ -474,6 +511,7 @@ Long Island,LIJ,32983,1,AK
 Metlakatla,MTM,33504,1,AK
 Naukiti,NKI,33693,1,AK
 Port Protection,PPV,34229,1,AK
+Ketchikan,WFB,31401,1,AK
 Hyder,WHD,35754,1,AK
 Whale Pass,WWP,35885,1,AK
 Chomondely Sound,ZXH,36340,1,AK
@@ -488,7 +526,9 @@ Cheyenne,CYS,31233,88,WY
 Gulfport/Biloxi,GPT,31973,53,MS
 Lubbock,LBB,32896,74,TX
 Midland/Odessa,MAF,33158,74,TX
+Chatham,CYM,31230,1,AK
 Funter Bay Alaska,FNR,31720,1,AK
+Peach Springs,1G4,30011,81,AZ
 Bryce Canyon,BCE,30511,87,UT
 Boulder City,BLD,30661,85,NV
 Whitmore,DQS,31399,81,AZ
@@ -503,25 +543,33 @@ Monument Valley,UXR,35532,87,UT
 Key West,EYW,31624,33,FL
 Culebra,CPX,31126,3,PR
 Ceiba,JRV,33743,3,PR
+San Juan,SIG,34819,3,PR
 Vieques,VQS,35626,3,PR
+Denver,APA,30325,82,CO
 Carlsbad,CLD,31041,91,CA
+Chicago,DPA,30977,41,IL
 Iowa City,IOW,32358,61,IA
 Latrobe,LBE,32898,23,PA
 Olympia,OLM,33865,93,WA
+Miami,OPF,32467,33,FL
 Pellston,PLN,34150,43,MI
 Poughkeepsie,POU,34212,22,NY
 Sugar Land,SGR,34792,74,TX
+Springfield,SPI,34952,41,IL
 Sun Valley/Hailey/Ketchum,SUN,35041,83,ID
 Waukegan,UGN,35447,41,IL
 Leesburg,VA4,35548,38,VA
 Vero Beach,VRB,35628,33,FL
+Wichita,IAB,30928,62,KS
 Everett,PAE,34004,93,WA
 Guam,GUM,32016,5,TT
 Bellingham,BLI,30666,93,WA
 Decatur Island,DTR,31431,93,WA
 Eastsound,ESD,31588,93,WA
 Friday Harbor,FBS,31646,93,WA
+Friday Harbor,FRD,31646,93,WA
 Kenmore,KEH,30559,93,WA
+Seattle,LKE,30559,93,WA
 Lopez Island,LPS,33055,93,WA
 Roche Harbor,RCE,34477,93,WA
 Pago Pago,PPG,34222,5,TT
@@ -529,8 +577,11 @@ Chandler,CHD,30982,81,AZ
 Hilo,ITO,32402,2,HI
 Oscoda,OSC,33947,43,MI
 Charleston/Dunbar,CRW,31146,39,WV
+Fayetteville,FAY,31641,36,NC
+Wilmington,ILM,32323,36,NC
 Myrtle Beach,MYR,31135,37,SC
 Jacksonville/Camp Lejeune,OAJ,33795,36,NC
+Greenville,PGV,34092,36,NC
 Roanoke,ROA,34574,38,VA
 Youngstown/Warren,YNG,36133,44,OH
 Belleville,BLV,30676,41,IL
@@ -538,6 +589,7 @@ Fort Jefferson,RBN,34470,33,FL
 Mosinee,CWA,30424,45,WI
 Eau Claire,EAU,31471,45,WI
 Wendover,ENV,31563,87,UT
+Fayetteville,FYV,31834,71,AR
 Grand Junction,GJT,31921,82,CO
 Gainesville,GNV,31953,33,FL
 Medford,MFR,33264,92,OR
@@ -549,26 +601,32 @@ Fort Pierce,FPR,31732,33,FL
 Brooksville,JZQ,32595,33,FL
 Baranof,BNF,30697,1,AK
 Port Alexander,PTD,34270,1,AK
+Anchorage,DQL,30299,1,AK
 Kulik Lake,LKK,33003,1,AK
 Brooks Lodge,RBH,34468,1,AK
 Ocala,OCF,33809,33,FL
 Alpine,A20,30033,1,AK
 Hot Springs,HOT,32190,71,AR
+Columbus,LCK,31066,44,OH
 Shemya,SYA,35090,1,AK
 Bowling Green,BWG,30819,52,KY
 Crestview,CEW,30947,33,FL
 Destin,DSI,31421,33,FL
 Durant,DUA,31434,73,OK
 Elizabeth City,ECG,31479,36,NC
+Fort Myers,FMY,31714,33,FL
+Fort Lauderdale,FXE,32467,33,FL
 Ashland,HTS,32223,39,WV
 Johnstown,JST,32559,23,PA
 Manistee/Ludington,MBL,33182,43,MI
 Manassas,MNZ,33418,38,VA
+New Orleans,NEW,33495,72,LA
 Oxnard/Ventura,OXR,33988,91,CA
 Punta Gorda,PGD,34082,33,FL
 Sherman-Denison,PNX,34194,74,TX
 Rockland,RKD,34539,12,ME
 Sioux City,SUX,35048,61,IA
+Nashville,TN8,30693,54,TN
 Bristol/Johnson City/Kingsport,TRI,35323,54,TN
 Tupelo,TUP,35374,53,MS
 St. Augustine,UST,35497,33,FL
@@ -587,14 +645,19 @@ Pueblo,PUB,34288,82,CO
 Rapid City,RAP,34457,67,SD
 Waterloo,ALO,30268,61,IA
 Anniston,ANB,30298,51,AL
+Columbia,COU,32474,64,MO
 Gadsden,GAD,31840,51,AL
 London/Corbin,LOZ,33046,52,KY
 Muncie/Anderson/Newcastle,MIE,33307,42,IN
 Roxboro,TDF,35163,36,NC
 Cocoa Beach,COF,31099,33,FL
+Honolulu,HIK,32134,2,HI
 Mojave,MHV,33297,91,CA
+Jacksonville,NIP,31136,33,FL
 Fairfield,SUU,35045,91,CA
+Guam,UAM,32016,5,TT
 Fort Dix,WRI,35842,21,NJ
+Sacramento,MHR,33192,91,CA
 Gary,GYY,30977,42,IN
 Ganes Creek,GEK,31885,1,AK
 Takotna,TCT,35160,1,AK
@@ -648,6 +711,7 @@ Kalispell,FCA,31648,84,MT
 Farmington,FMN,31711,86,NM
 Pierre,PIR,34120,67,SD
 Window Rock,QQU,34431,81,AZ
+Houston,DWH,31453,74,TX
 Blue Fox Bay,BFB,30556,1,AK
 Kitoi Bay,KKB,32705,1,AK
 Olga Bay,KOY,32771,1,AK
@@ -677,7 +741,9 @@ St. George,SGU,34794,87,UT
 West Yellowstone,WYS,35897,84,MT
 Yuma,YUM,33785,81,AZ
 Aguadilla,BQN,30732,3,PR
+Lafayette,LFT,32951,72,LA
 Aberdeen,ABR,30141,67,SD
+Mobile,BFM,30562,51,AL
 Garden City,GCK,31867,62,KS
 Iron Mountain/Kingsfd,IMT,32335,43,MI
 Mitchell,MHE,33287,67,SD
@@ -690,11 +756,13 @@ Lynchburg,LYH,33139,38,VA
 Bloomington/Normal,BMI,30685,41,IL
 Florence,FLO,31699,37,SC
 Salisbury,SBY,34704,35,MD
+Wilmington,ILN,32324,44,OH
 Lansing,LAN,32884,43,MI
 Durango,DRO,30285,82,CO
 Auburn,AUO,30419,51,AL
 Erie,ERI,31577,23,PA
 Longview,GGG,31905,74,TX
+Columbus,GTR,30894,53,MS
 Hobbs,HOB,32177,86,NM
 Joplin,JLN,32511,64,MO
 Lake Charles,LCH,31205,72,LA
@@ -704,6 +772,7 @@ Monroe,MLU,33377,72,LA
 Hattiesburg/Laurel,PIB,34109,53,MS
 Tyler,TYR,35411,74,TX
 Valdosta,VLD,35550,34,GA
+Albany,ABY,30146,34,GA
 Moser Bay,KMY,32743,1,AK
 West Point,KWP,32854,1,AK
 Uganik,UGI,35446,1,AK
@@ -729,6 +798,7 @@ Hayden,HDN,34699,82,CO
 Hagerstown,HGR,32119,35,MD
 Branson,BKG,30643,64,MO
 Dothan,DHN,31308,51,AL
+Concord,CCR,32457,91,CA
 Telluride,TEX,35177,82,CO
 Cortez,CEZ,30950,82,CO
 Santa Maria,SMX,34905,91,CA
@@ -744,12 +814,15 @@ Lake Havasu City,HII,32132,81,AZ
 Lewiston,LWS,33127,83,ID
 Burlington/Mount Vernon,MVW,33540,93,WA
 Moses Lake,MWH,33546,93,WA
+Newport,ONP,33890,92,OR
+Cincinnati,LUK,33105,44,OH
 Devils Lake,DVL,31447,66,ND
 Sault Ste. Marie,CIU,31013,43,MI
 Manteo,MEO,33246,36,NC
 Marathon,MTH,33501,33,FL
 Wolf Point,OLF,33862,84,MT
 Salem,SLE,34871,92,OR
+Burlington,BRL,30744,61,IA
 Fort Dodge,FOD,31725,61,IA
 Ironwood,IWD,32412,43,MI
 Mason City,MCW,33211,61,IA
@@ -757,6 +830,8 @@ Brownwood,BWD,30817,74,TX
 Ukiah,UKI,35458,91,CA
 Rock Springs,RKS,34543,88,WY
 Alamosa,ALS,30272,82,CO
+Carlsbad,CNM,31085,86,NM
+Greenville,GLH,31931,53,MS
 Muscle Shoals,MSL,33484,51,AL
 Gillette,GCC,31865,88,WY
 Jamestown,JMS,32519,66,ND
@@ -769,6 +844,7 @@ Westerly,WST,35855,15,RI
 Rhinelander,RHI,34520,45,WI
 Petaluma,UXK,35525,91,CA
 Riverton/Lander,RIW,34534,88,WY
+Yuma,NYL,33785,81,AZ
 El Dorado,ELD,31531,71,AR
 Staunton,SHD,34802,38,VA
 Watertown,ATY,30409,67,SD
@@ -789,6 +865,7 @@ Decatur,DEC,31288,41,IL
 Lancaster,LNS,33032,23,PA
 Moab,CNY,31092,87,UT
 Kamuela,MUE,33520,2,HI
+Watertown,ART,30361,22,NY
 DuBois,DUJ,31441,23,PA
 Merced,MCE,33194,91,CA
 Hana,HNM,32174,2,HI
@@ -796,6 +873,7 @@ Beaumont/Port Arthur,BPT,30728,74,TX
 Stillwater,SWO,35074,73,OK
 El Centro,IPL,32363,91,CA
 Jonesboro,JBR,32455,71,AR
+Jackson,MKL,33348,54,TN
 Walla Walla,ALW,30275,93,WA
 Clovis,CVN,31197,86,NM
 Show Low,SOW,34943,81,AZ
@@ -807,6 +885,7 @@ Dubuque,DBQ,31274,61,IA
 Brunswick,BQK,30731,34,GA
 Pullman,PUW,34303,93,WA
 Bradford,BFD,30557,23,PA
+Jamestown,JHW,32494,22,NY
 Glasgow,GGW,31908,84,MT
 Havre,HVR,32245,84,MT
 Saranac Lake/Lake Placid,SLK,34875,22,NY
@@ -814,5 +893,26 @@ Kirksville,IRK,32375,64,MO
 Cape Girardeau,CGI,30967,64,MO
 Mayaguez,MAZ,33176,3,PR
 Fort Leonard Wood,TBN,35138,64,MO
+Augusta/Waterville,AUG,30414,12,ME
+Charlotte Amalie,SPB,34945,4,VI
+Christiansted,SSB,34992,4,VI
 Quincy,UIN,35454,41,IL
 Marion/Herrin,MWA,33543,41,IL
+Norwich,OIC,33845,22,NY
+Orlando,ISM,31454,33,FL
+Lewiston/Auburn,LEW,32944,12,ME
+North Adams,NAD,33599,13,MA
+Columbia,MRC,33464,54,TN
+New Smyrna Beach,DQN,31394,33,FL
+San Diego,NZY,33570,91,CA
+Rosario,RSJ,34628,93,WA
+Chicopee Falls,CEF,30933,13,MA
+Monroe,N2C,36698,36,NC
+Marion,MNN,33410,44,OH
+Anderson,AND,30300,37,SC
+Battle Creek,BTL,30778,43,MI
+Ogden,HIF,32131,87,UT
+Hayward,HWD,32247,91,CA
+Northway,ORT,33940,1,AK
+Gasquet,ZXC,36336,91,CA
+Selma,SEM,34753,51,AL
