@@ -1,0 +1,420 @@
+
+
+postgres=# select City.City_Name, StateTable.State_Name, Airport.Abriviation, Carrier.Carrier_Name, sum (flight.passengers)
+postgres-#  from flight
+postgres-# Join Airport
+postgres-# on flight.Origin_Airport_ID = Airport.Airport_ID
+postgres-# Join City
+postgres-# on City.City_Abrv= Airport.Abriviation
+postgres-# Join Carrier
+postgres-# on flight.Airline_ID = Carrier.Airline_ID
+postgres-# Join StateTable
+postgres-# on City.State_Abrv like StateTable.State_Abrv
+postgres-# where flight.Origin_Airport_ID IN (select Airport.Airport_ID
+postgres(# from Airport
+postgres(# Inner Join City on City.City_Abrv=Airport.Abriviation
+postgres(# where City.State_Abrv like 'CO')
+postgres-# Group BY City.City_Name, StateTable.State_Name, Airport.Abriviation, Carrier.Carrier_Name;
+
+
+       city_name       | state_name | abriviation |                       carrier_name                       |  sum
+-----------------------+------------+-------------+----------------------------------------------------------+--------
+ Alamosa               | Colorado   | ALS         | Boutique Air                                             |    623
+ Aspen                 | Colorado   | ASE         | Avjet Corporation                                        |      3
+ Aspen                 | Colorado   | ASE         | SkyWest Airlines Inc.                                    |  15855
+ Colorado Springs      | Colorado   | COS         | Alaska Airlines Inc.                                     |    156
+ Colorado Springs      | Colorado   | COS         | Allegiant Air                                            |   2681
+ Colorado Springs      | Colorado   | COS         | American Airlines Inc.                                   |    407
+ Colorado Springs      | Colorado   | COS         | Delta Air Lines Inc.                                     |    299
+ Colorado Springs      | Colorado   | COS         | ExpressJet Airlines Inc.                                 |   2167
+ Colorado Springs      | Colorado   | COS         | Federal Express Corporation                              |      0
+ Colorado Springs      | Colorado   | COS         | Frontier Airlines Inc.                                   |  15847
+ Colorado Springs      | Colorado   | COS         | Horizon Air                                              |   1004
+ Colorado Springs      | Colorado   | COS         | Miami Air International                                  |      0
+ Colorado Springs      | Colorado   | COS         | Republic Airlines                                        |   2261
+ Colorado Springs      | Colorado   | COS         | SkyWest Airlines Inc.                                    |   7846
+ Colorado Springs      | Colorado   | COS         | Southwest Airlines Co.                                   |    281
+ Colorado Springs      | Colorado   | COS         | Trans States Airlines                                    |    801
+ Cortez                | Colorado   | CEZ         | Boutique Air                                             |    270
+ Denver                | Colorado   | APA         | Jet Aviation Flight Services, Inc.                       |      2
+ Denver                | Colorado   | APA         | Peninsula Airways Inc.                                   |      5
+ Denver                | Colorado   | DEN         | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  |   2148
+ Denver                | Colorado   | DEN         | Alaska Airlines Inc.                                     |   4548
+ Denver                | Colorado   | DEN         | Allegiant Air                                            |   1776
+ Denver                | Colorado   | DEN         | American Airlines Inc.                                   |  46935
+ Denver                | Colorado   | DEN         | Ameristar Air Cargo                                      |      0
+ Denver                | Colorado   | DEN         | Boutique Air                                             |   2188
+ Denver                | Colorado   | DEN         | Charter Air Transport, Inc.                              |    344
+ Denver                | Colorado   | DEN         | Corporate Flight Management Inc.d/b/a Crystal Luxury Air |     14
+ Denver                | Colorado   | DEN         | Delta Air Lines Inc.                                     |  11051
+ Denver                | Colorado   | DEN         | ExpressJet Airlines Inc.                                 |     47
+ Denver                | Colorado   | DEN         | Federal Express Corporation                              |      0
+ Denver                | Colorado   | DEN         | Frontier Airlines Inc.                                   | 140567
+ Denver                | Colorado   | DEN         | GoJet Airlines LLC d/b/a United Express                  |  47578
+ Denver                | Colorado   | DEN         | Great Lakes Aviation Ltd.                                |   1122
+ Denver                | Colorado   | DEN         | JetBlue Airways                                          |   9417
+ Denver                | Colorado   | DEN         | Kalitta Charters II                                      |      0
+ Denver                | Colorado   | DEN         | Omni Air International LLC                               |      0
+ Denver                | Colorado   | DEN         | Peninsula Airways Inc.                                   |   1706
+ Denver                | Colorado   | DEN         | Pinnacle Airlines Inc.                                   |    139
+ Denver                | Colorado   | DEN         | Republic Airlines                                        |   7850
+ Denver                | Colorado   | DEN         | SkyWest Airlines Inc.                                    |  89298
+ Denver                | Colorado   | DEN         | Southern Air Inc.                                        |      0
+ Denver                | Colorado   | DEN         | Southwest Airlines Co.                                   | 108032
+ Denver                | Colorado   | DEN         | Spirit Air Lines                                         |  46618
+ Denver                | Colorado   | DEN         | Sun Country Airlines d/b/a MN Airlines                   |    791
+ Denver                | Colorado   | DEN         | Swift Air, LLC                                           |     66
+ Denver                | Colorado   | DEN         | Trans States Airlines                                    |  46617
+ Denver                | Colorado   | DEN         | United Air Lines Inc.                                    |  69608
+ Denver                | Colorado   | DEN         | United Parcel Service                                    |      0
+ Denver                | Colorado   | DEN         | Virgin America                                           |    117
+ Durango               | Colorado   | DRO         | Empire Airlines Inc.                                     |      0
+ Durango               | Colorado   | DRO         | Federal Express Corporation                              |      0
+ Durango               | Colorado   | DRO         | GoJet Airlines LLC d/b/a United Express                  |   6090
+ Durango               | Colorado   | DRO         | Mesa Airlines Inc.                                       |   5087
+ Durango               | Colorado   | DRO         | SkyWest Airlines Inc.                                    |   3780
+ Durango               | Colorado   | DRO         | Trans States Airlines                                    |     47
+ Eagle                 | Colorado   | EGE         | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  |     22
+ Eagle                 | Colorado   | EGE         | American Airlines Inc.                                   |   2489
+ Eagle                 | Colorado   | EGE         | Avjet Corporation                                        |      3
+ Eagle                 | Colorado   | EGE         | GoJet Airlines LLC d/b/a United Express                  |   1074
+ Fort Collins/Loveland | Colorado   | FNL         | Sun Country Airlines d/b/a MN Airlines                   |    149
+ Grand Junction        | Colorado   | GJT         | Allegiant Air                                            |   1380
+ Grand Junction        | Colorado   | GJT         | Compass Airlines                                         |    126
+ Grand Junction        | Colorado   | GJT         | Federal Express Corporation                              |      0
+ Grand Junction        | Colorado   | GJT         | Simmons Airlines                                         |   5171
+ Grand Junction        | Colorado   | GJT         | SkyWest Airlines Inc.                                    |   7139
+ Grand Junction        | Colorado   | GJT         | Swift Air, LLC                                           |    138
+ Grand Junction        | Colorado   | GJT         | Trans States Airlines                                    |   2600
+ Gunnison              | Colorado   | GUC         | Trans States Airlines                                    |    245
+ Hayden                | Colorado   | HDN         | Federal Express Corporation                              |      0
+ Hayden                | Colorado   | HDN         | GoJet Airlines LLC d/b/a United Express                  |   1184
+ Hayden                | Colorado   | HDN         | Trans States Airlines                                    |    344
+ Montrose/Delta        | Colorado   | MTJ         | ExpressJet Airlines Inc.                                 |    916
+ Montrose/Delta        | Colorado   | MTJ         | GoJet Airlines LLC d/b/a United Express                  |   3280
+ Montrose/Delta        | Colorado   | MTJ         | Mesa Airlines Inc.                                       |   2813
+ Montrose/Delta        | Colorado   | MTJ         | Simmons Airlines                                         |    194
+ Montrose/Delta        | Colorado   | MTJ         | SkyWest Airlines Inc.                                    |    140
+ Montrose/Delta        | Colorado   | MTJ         | Sun Country Airlines d/b/a MN Airlines                   |     93
+ Montrose/Delta        | Colorado   | MTJ         | Trans States Airlines                                    |    880
+ Pueblo                | Colorado   | PUB         | Great Lakes Aviation Ltd.                                |    236
+ Pueblo                | Colorado   | PUB         | Sun Country Airlines d/b/a MN Airlines                   |    154
+ Pueblo                | Colorado   | PUB         | USA Jet Airlines Inc.                                    |      0
+ Telluride             | Colorado   | TEX         | Great Lakes Aviation Ltd.                                |     11
+(82 rows)
+
+PROBLEM 2
+
+
+       city_name       | state_name | abriviation |                       carrier_name                       |   sum
+-----------------------+------------+-------------+----------------------------------------------------------+----------
+ Alamosa               | Colorado   | ALS         | Boutique Air                                             |   166400
+ Aspen                 | Colorado   | ASE         | Avjet Corporation                                        |     2000
+ Aspen                 | Colorado   | ASE         | SkyWest Airlines Inc.                                    |  6994430
+ Colorado Springs      | Colorado   | COS         | Alaska Airlines Inc.                                     |    41080
+ Colorado Springs      | Colorado   | COS         | Allegiant Air                                            |  1364000
+ Colorado Springs      | Colorado   | COS         | American Airlines Inc.                                   |   119700
+ Colorado Springs      | Colorado   | COS         | Delta Air Lines Inc.                                     |    88639
+ Colorado Springs      | Colorado   | COS         | ExpressJet Airlines Inc.                                 |   530000
+ Colorado Springs      | Colorado   | COS         | Federal Express Corporation                              |  1762954
+ Colorado Springs      | Colorado   | COS         | Frontier Airlines Inc.                                   |  3720000
+ Colorado Springs      | Colorado   | COS         | Horizon Air                                              |   271500
+ Colorado Springs      | Colorado   | COS         | Miami Air International                                  |    42500
+ Colorado Springs      | Colorado   | COS         | Republic Airlines                                        |   709115
+ Colorado Springs      | Colorado   | COS         | SkyWest Airlines Inc.                                    |  2143980
+ Colorado Springs      | Colorado   | COS         | Southwest Airlines Co.                                   |    69200
+ Colorado Springs      | Colorado   | COS         | Trans States Airlines                                    |   200124
+ Cortez                | Colorado   | CEZ         | Boutique Air                                             |    57600
+ Denver                | Colorado   | APA         | Jet Aviation Flight Services, Inc.                       |     5600
+ Denver                | Colorado   | APA         | Peninsula Airways Inc.                                   |     7600
+ Denver                | Colorado   | DEN         | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  |   593316
+ Denver                | Colorado   | DEN         | Alaska Airlines Inc.                                     |  1279360
+ Denver                | Colorado   | DEN         | Allegiant Air                                            |  1313000
+ Denver                | Colorado   | DEN         | American Airlines Inc.                                   | 14811200
+ Denver                | Colorado   | DEN         | Ameristar Air Cargo                                      |    21458
+ Denver                | Colorado   | DEN         | Boutique Air                                             |   601600
+ Denver                | Colorado   | DEN         | Charter Air Transport, Inc.                              |    90000
+ Denver                | Colorado   | DEN         | Corporate Flight Management Inc.d/b/a Crystal Luxury Air |    12343
+ Denver                | Colorado   | DEN         | Delta Air Lines Inc.                                     |  3246108
+ Denver                | Colorado   | DEN         | ExpressJet Airlines Inc.                                 |    10000
+ Denver                | Colorado   | DEN         | Federal Express Corporation                              |  4503175
+ Denver                | Colorado   | DEN         | Frontier Airlines Inc.                                   | 31066400
+ Denver                | Colorado   | DEN         | GoJet Airlines LLC d/b/a United Express                  | 14475420
+ Denver                | Colorado   | DEN         | Great Lakes Aviation Ltd.                                |   787500
+ Denver                | Colorado   | DEN         | JetBlue Airways                                          |  2618000
+ Denver                | Colorado   | DEN         | Kalitta Charters II                                      |    23000
+ Denver                | Colorado   | DEN         | Omni Air International LLC                               |    68370
+ Denver                | Colorado   | DEN         | Peninsula Airways Inc.                                   |  1474400
+ Denver                | Colorado   | DEN         | Pinnacle Airlines Inc.                                   |    43004
+ Denver                | Colorado   | DEN         | Republic Airlines                                        |  2525221
+ Denver                | Colorado   | DEN         | SkyWest Airlines Inc.                                    | 26956280
+ Denver                | Colorado   | DEN         | Southern Air Inc.                                        |  1668260
+ Denver                | Colorado   | DEN         | Southwest Airlines Co.                                   | 28240800
+ Denver                | Colorado   | DEN         | Spirit Air Lines                                         | 10808800
+ Denver                | Colorado   | DEN         | Sun Country Airlines d/b/a MN Airlines                   |   252740
+ Denver                | Colorado   | DEN         | Swift Air, LLC                                           |   379150
+ Denver                | Colorado   | DEN         | Trans States Airlines                                    | 12474396
+ Denver                | Colorado   | DEN         | United Air Lines Inc.                                    | 20662376
+ Denver                | Colorado   | DEN         | United Parcel Service                                    |  7001087
+ Denver                | Colorado   | DEN         | Virgin America                                           |    37822
+ Durango               | Colorado   | DRO         | Empire Airlines Inc.                                     |    88400
+ Durango               | Colorado   | DRO         | Federal Express Corporation                              |    91000
+ Durango               | Colorado   | DRO         | GoJet Airlines LLC d/b/a United Express                  |  1972320
+ Durango               | Colorado   | DRO         | Mesa Airlines Inc.                                       |  1738060
+ Durango               | Colorado   | DRO         | SkyWest Airlines Inc.                                    |  1262400
+ Durango               | Colorado   | DRO         | Trans States Airlines                                    |    11118
+ Eagle                 | Colorado   | EGE         | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  |    12659
+ Eagle                 | Colorado   | EGE         | American Airlines Inc.                                   |  1301100
+ Eagle                 | Colorado   | EGE         | Avjet Corporation                                        |     4000
+ Eagle                 | Colorado   | EGE         | GoJet Airlines LLC d/b/a United Express                  |   528300
+ Fort Collins/Loveland | Colorado   | FNL         | Sun Country Airlines d/b/a MN Airlines                   |    43411
+ Grand Junction        | Colorado   | GJT         | Allegiant Air                                            |  1010000
+ Grand Junction        | Colorado   | GJT         | Compass Airlines                                         |    79544
+ Grand Junction        | Colorado   | GJT         | Federal Express Corporation                              |  2510341
+ Grand Junction        | Colorado   | GJT         | Simmons Airlines                                         |  1736240
+ Grand Junction        | Colorado   | GJT         | SkyWest Airlines Inc.                                    |  2357405
+ Grand Junction        | Colorado   | GJT         | Swift Air, LLC                                           |    75830
+ Grand Junction        | Colorado   | GJT         | Trans States Airlines                                    |   700434
+ Gunnison              | Colorado   | GUC         | Trans States Airlines                                    |    88944
+ Hayden                | Colorado   | HDN         | Federal Express Corporation                              |    77000
+ Hayden                | Colorado   | HDN         | GoJet Airlines LLC d/b/a United Express                  |   387420
+ Hayden                | Colorado   | HDN         | Trans States Airlines                                    |    88944
+ Montrose/Delta        | Colorado   | MTJ         | ExpressJet Airlines Inc.                                 |   230000
+ Montrose/Delta        | Colorado   | MTJ         | GoJet Airlines LLC d/b/a United Express                  |  1074210
+ Montrose/Delta        | Colorado   | MTJ         | Mesa Airlines Inc.                                       |  1131760
+ Montrose/Delta        | Colorado   | MTJ         | Simmons Airlines                                         |    62750
+ Montrose/Delta        | Colorado   | MTJ         | SkyWest Airlines Inc.                                    |    40500
+ Montrose/Delta        | Colorado   | MTJ         | Sun Country Airlines d/b/a MN Airlines                   |    43116
+ Montrose/Delta        | Colorado   | MTJ         | Trans States Airlines                                    |   289068
+ Pueblo                | Colorado   | PUB         | Great Lakes Aviation Ltd.                                |   346500
+ Pueblo                | Colorado   | PUB         | Sun Country Airlines d/b/a MN Airlines                   |    42116
+ Pueblo                | Colorado   | PUB         | USA Jet Airlines Inc.                                    |     5600
+ Telluride             | Colorado   | TEX         | Great Lakes Aviation Ltd.                                |     4500
+(82 rows)
+
+PROBLEM 3
+
+ Phoenix                  | Arizona        | SkyWest Airlines Inc.                                    | Durango               |    33100
+ Phoenix                  | Arizona        | SkyWest Airlines Inc.                                    | Grand Junction        |    47940
+ Phoenix                  | Arizona        | Southwest Airlines Co.                                   | Denver                |   687201
+ Phoenix                  | Arizona        | Swift Air, LLC                                           | Denver                |    13590
+ Phoenix                  | Arizona        | United Air Lines Inc.                                    | Denver                |  1524345
+ Pierre                   | South Dakota   | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  | Denver                |   841674
+ Pittsburgh               | Pennsylvania   | Frontier Airlines Inc.                                   | Denver                |  2057979
+ Pittsburgh               | Pennsylvania   | Southwest Airlines Co.                                   | Denver                |    64779
+ Pittsburgh               | Pennsylvania   | United Air Lines Inc.                                    | Denver                |   365571
+ Portland                 | Oregon         | Frontier Airlines Inc.                                   | Denver                |  1102149
+ Portland                 | Oregon         | SkyWest Airlines Inc.                                    | Denver                |    34428
+ Portland                 | Oregon         | Southwest Airlines Co.                                   | Denver                |   124122
+ Portland                 | Oregon         | United Air Lines Inc.                                    | Denver                |   316647
+ Raleigh/Durham           | North Carolina | American Airlines Inc.                                   | Denver                |    64326
+ Raleigh/Durham           | North Carolina | Frontier Airlines Inc.                                   | Denver                |   130917
+ Raleigh/Durham           | North Carolina | Southwest Airlines Co.                                   | Denver                |   594789
+ Raleigh/Durham           | North Carolina | United Air Lines Inc.                                    | Denver                |   218346
+ Rapid City               | South Dakota   | GoJet Airlines LLC d/b/a United Express                  | Denver                |   911436
+ Rapid City               | South Dakota   | SkyWest Airlines Inc.                                    | Denver                |    48471
+ Rapid City               | South Dakota   | Trans States Airlines                                    | Denver                |  1223100
+ Reno                     | Nevada         | Corporate Flight Management Inc.d/b/a Crystal Luxury Air | Denver                |     5889
+ Reno                     | Nevada         | Southwest Airlines Co.                                   | Denver                |    63420
+ Reno                     | Nevada         | United Air Lines Inc.                                    | Denver                |    17214
+ Richmond                 | Virginia       | SkyWest Airlines Inc.                                    | Denver                |   217440
+ Richmond                 | Virginia       | United Air Lines Inc.                                    | Denver                |    62514
+ Riverton/Lander          | Wyoming        | Great Lakes Aviation Ltd.                                | Denver                |   159003
+ Rochester                | New York       | Swift Air, LLC                                           | Denver                |        0
+ Rock Springs             | Wyoming        | SkyWest Airlines Inc.                                    | Denver                |   652320
+ Rockford                 | Illinois       | United Parcel Service                                    | Denver                |        0
+ Sacramento               | California     | SkyWest Airlines Inc.                                    | Denver                |    30804
+ Sacramento               | California     | Southwest Airlines Co.                                   | Denver                |    63420
+ Sacramento               | California     | United Air Lines Inc.                                    | Denver                |   698979
+ Salina                   | Kansas         | Great Lakes Aviation Ltd.                                | Denver                |    42582
+ Salt Lake City           | Utah           | American Airlines Inc.                                   | Colorado Springs      |     4788
+ Salt Lake City           | Utah           | Avjet Corporation                                        | Aspen                 |       20
+ Salt Lake City           | Utah           | Delta Air Lines Inc.                                     | Denver                |    23556
+ Salt Lake City           | Utah           | Frontier Airlines Inc.                                   | Denver                |  1575081
+ Salt Lake City           | Utah           | Republic Airlines                                        | Denver                |    94224
+ Salt Lake City           | Utah           | SkyWest Airlines Inc.                                    | Aspen                 |    10040
+ Salt Lake City           | Utah           | SkyWest Airlines Inc.                                    | Colorado Springs      |    88920
+ Salt Lake City           | Utah           | SkyWest Airlines Inc.                                    | Denver                |    91053
+ Salt Lake City           | Utah           | SkyWest Airlines Inc.                                    | Grand Junction        |    57015
+ Salt Lake City           | Utah           | Southwest Airlines Co.                                   | Denver                |   233748
+ Salt Lake City           | Utah           | United Air Lines Inc.                                    | Denver                |   558096
+ Salt Lake City           | Utah           | United Parcel Service                                    | Denver                |        0
+ San Antonio              | Texas          | Frontier Airlines Inc.                                   | Denver                |   135447
+ San Antonio              | Texas          | GoJet Airlines LLC d/b/a United Express                  | Denver                |   344733
+ San Antonio              | Texas          | Republic Airlines                                        | Denver                |    86976
+ San Antonio              | Texas          | SkyWest Airlines Inc.                                    | Denver                |    29445
+ San Antonio              | Texas          | Southwest Airlines Co.                                   | Denver                |   293997
+ San Antonio              | Texas          | United Air Lines Inc.                                    | Denver                |    57984
+ San Diego                | California     | Frontier Airlines Inc.                                   | Denver                |  1907130
+ San Diego                | California     | SkyWest Airlines Inc.                                    | Denver                |    31257
+ San Diego                | California     | Southwest Airlines Co.                                   | Denver                |   124575
+ San Diego                | California     | Spirit Air Lines                                         | Denver                |  2186178
+ San Diego                | California     | United Air Lines Inc.                                    | Denver                |   780972
+ San Francisco            | California     | American Airlines Inc.                                   | Denver                |    67950
+ San Francisco            | California     | Delta Air Lines Inc.                                     | Denver                |    27633
+ San Francisco            | California     | Frontier Airlines Inc.                                   | Colorado Springs      |    32580
+ San Francisco            | California     | Frontier Airlines Inc.                                   | Denver                |  4643703
+ San Francisco            | California     | SkyWest Airlines Inc.                                    | Aspen                 |    11020
+ San Francisco            | California     | Southwest Airlines Co.                                   | Denver                |   400905
+ San Francisco            | California     | United Air Lines Inc.                                    | Denver                |    58437
+ San Francisco            | California     | Virgin America                                           | Denver                |    53907
+ San Jose                 | California     | SkyWest Airlines Inc.                                    | Denver                |  1463643
+ San Jose                 | California     | Southwest Airlines Co.                                   | Colorado Springs      |     5040
+ San Jose                 | California     | Southwest Airlines Co.                                   | Denver                |   106908
+ San Jose                 | California     | United Air Lines Inc.                                    | Denver                |   277689
+ San Luis Obispo          | California     | SkyWest Airlines Inc.                                    | Denver                |   451188
+ Santa Ana                | California     | Frontier Airlines Inc.                                   | Denver                |   256851
+ Santa Ana                | California     | SkyWest Airlines Inc.                                    | Denver                |    30351
+ Santa Ana                | California     | Southwest Airlines Co.                                   | Denver                |  8398620
+ Santa Ana                | California     | United Air Lines Inc.                                    | Denver                |    72027
+ Santa Barbara            | California     | SkyWest Airlines Inc.                                    | Denver                |   112344
+ Santa Barbara            | California     | United Air Lines Inc.                                    | Denver                |    49377
+ Santa Fe                 | New Mexico     | Trans States Airlines                                    | Denver                |  1189125
+ Scottsbluff              | Nebraska       | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  | Denver                |     9060
+ Scottsbluff              | Nebraska       | Peninsula Airways Inc.                                   | Denver                |   149037
+ Scottsbluff              | Nebraska       | Trans States Airlines                                    | Denver                |    22197
+ Scottsbluff              | Nebraska       | United Air Lines Inc.                                    | Denver                |    57078
+ Seattle                  | Washington     | Alaska Airlines Inc.                                     | Colorado Springs      |     5616
+ Seattle                  | Washington     | Alaska Airlines Inc.                                     | Denver                |  2025816
+ Seattle                  | Washington     | Delta Air Lines Inc.                                     | Denver                |  1983234
+ Seattle                  | Washington     | Frontier Airlines Inc.                                   | Denver                |   839409
+ Seattle                  | Washington     | Horizon Air                                              | Colorado Springs      |    36864
+ Seattle                  | Washington     | SkyWest Airlines Inc.                                    | Colorado Springs      |    37908
+ Seattle                  | Washington     | SkyWest Airlines Inc.                                    | Denver                |  3199539
+ Seattle                  | Washington     | Southwest Airlines Co.                                   | Denver                |   115968
+ Seattle                  | Washington     | United Air Lines Inc.                                    | Denver                |   274065
+ Shreveport               | Louisiana      | SkyWest Airlines Inc.                                    | Denver                |   468402
+ Shreveport               | Louisiana      | Trans States Airlines                                    | Denver                |    41676
+ Sioux Falls              | South Dakota   | Frontier Airlines Inc.                                   | Denver                |  1566474
+ Sioux Falls              | South Dakota   | SkyWest Airlines Inc.                                    | Denver                |   619251
+ Sioux Falls              | South Dakota   | Trans States Airlines                                    | Denver                |   133182
+ Sioux Falls              | South Dakota   | United Air Lines Inc.                                    | Denver                |   550848
+ Spokane                  | Washington     | SkyWest Airlines Inc.                                    | Denver                |    84711
+ Spokane                  | Washington     | Southwest Airlines Co.                                   | Denver                |   127293
+ Spokane                  | Washington     | United Air Lines Inc.                                    | Denver                |   115515
+ Springfield              | Missouri       | GoJet Airlines LLC d/b/a United Express                  | Denver                |   530463
+ Springfield              | Missouri       | SkyWest Airlines Inc.                                    | Denver                |   114609
+ Springfield              | Missouri       | Trans States Airlines                                    | Denver                |   235560
+ St. George               | Utah           | SkyWest Airlines Inc.                                    | Colorado Springs      |     1620
+ St. George               | Utah           | SkyWest Airlines Inc.                                    | Denver                |  1184595
+ St. Louis                | Missouri       | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  | Eagle                 |      190
+ St. Louis                | Missouri       | Frontier Airlines Inc.                                   | Denver                |    68856
+ St. Louis                | Missouri       | GoJet Airlines LLC d/b/a United Express                  | Denver                |  1768965
+ St. Louis                | Missouri       | Republic Airlines                                        | Denver                |   149943
+ St. Louis                | Missouri       | SkyWest Airlines Inc.                                    | Denver                |   220158
+ St. Louis                | Missouri       | Southwest Airlines Co.                                   | Denver                |   317100
+ St. Louis                | Missouri       | Trans States Airlines                                    | Denver                |   964437
+ St. Louis                | Missouri       | United Air Lines Inc.                                    | Denver                |    71121
+ Sugar Land               | Texas          | Jet Aviation Flight Services, Inc.                       | Aspen                 |       60
+ Tampa                    | Florida        | Frontier Airlines Inc.                                   | Denver                |     1812
+ Tampa                    | Florida        | Southwest Airlines Co.                                   | Denver                |  1883574
+ Tampa                    | Florida        | United Air Lines Inc.                                    | Denver                |   110079
+ Tucson                   | Arizona        | SkyWest Airlines Inc.                                    | Denver                |   169875
+ Tucson                   | Arizona        | Southwest Airlines Co.                                   | Denver                |   249603
+ Tucson                   | Arizona        | Trans States Airlines                                    | Denver                |    62967
+ Tucson                   | Arizona        | United Air Lines Inc.                                    | Denver                |   103284
+ Tulsa                    | Oklahoma       | GoJet Airlines LLC d/b/a United Express                  | Denver                |   479727
+ Tulsa                    | Oklahoma       | Republic Airlines                                        | Denver                |    23556
+ Tulsa                    | Oklahoma       | SkyWest Airlines Inc.                                    | Denver                |   173046
+ Tulsa                    | Oklahoma       | Southwest Airlines Co.                                   | Denver                |   420384
+ Tulsa                    | Oklahoma       | Swift Air, LLC                                           | Denver                |     9060
+ Tulsa                    | Oklahoma       | Trans States Airlines                                    | Denver                |   191166
+ Tulsa                    | Oklahoma       | United Air Lines Inc.                                    | Denver                |    55719
+ Vernal                   | Utah           | Boutique Air                                             | Denver                |   161268
+ Washington               | Virginia       | Frontier Airlines Inc.                                   | Denver                |   642807
+ Washington               | Virginia       | SkyWest Airlines Inc.                                    | Colorado Springs      |        0
+ Washington               | Virginia       | Southwest Airlines Co.                                   | Denver                |  2337027
+ Washington               | Virginia       | United Air Lines Inc.                                    | Denver                |   220611
+ Wendover                 | Utah           | Swift Air, LLC                                           | Grand Junction        |     2070
+ Wichita                  | Kansas         | GoJet Airlines LLC d/b/a United Express                  | Denver                |   524121
+ Wichita                  | Kansas         | Republic Airlines                                        | Denver                |    23556
+ Wichita                  | Kansas         | SkyWest Airlines Inc.                                    | Denver                |   173952
+ Wichita                  | Kansas         | Trans States Airlines                                    | Denver                |    71574
+ Wichita                  | Kansas         | United Air Lines Inc.                                    | Denver                |    67497
+ Williston                | North Dakota   | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways  | Denver                |    54813
+ Williston                | North Dakota   | SkyWest Airlines Inc.                                    | Denver                |   388221
+ Williston                | North Dakota   | Trans States Airlines                                    | Denver                |  1075422
+(502 rows)
+
+
+PROBLEM 4
+
+
+      origin_city       |   state_name   |              carrier_name            
+------------------------+----------------+-----------------------------------------
+ Albany                 | New York       | Southwest Airlines Co.
+ Atlanta                | Georgia        | Southwest Airlines Co.
+ Austin                 | Texas          | SkyWest Airlines Inc.
+ Austin                 | Texas          | Southwest Airlines Co.
+ Austin                 | Texas          | United Air Lines Inc.
+ Bakersfield            | California     | SkyWest Airlines Inc.
+ Baltimore              | Maryland       | United Air Lines Inc.
+ Bend/Redmond           | Oregon         | SkyWest Airlines Inc.
+ Billings               | Montana        | United Air Lines Inc.
+ Birmingham             | Alabama        | Republic Airlines
+ Boise                  | Idaho          | United Air Lines Inc.
+ Branson                | Missouri       | Charter Air Transport, Inc.
+ Cedar Rapids/Iowa City | Iowa           | Trans States Airlines
+ Cedar Rapids/Iowa City | Iowa           | United Air Lines Inc.
+ Charlotte              | North Carolina | United Air Lines Inc.
+ Cleveland              | Ohio           | Republic Airlines
+ Cleveland              | Ohio           | SkyWest Airlines Inc.
+ Columbus               | Ohio           | United Air Lines Inc.
+ Dallas/Fort Worth      | Texas          | GoJet Airlines LLC d/b/a United Express
+ Des Moines             | Iowa           | Frontier Airlines Inc.
+ Des Moines             | Iowa           | United Air Lines Inc.
+ Detroit                | Michigan       | United Air Lines Inc.
+ Hartford               | Connecticut    | Southwest Airlines Co.
+ Houston                | Texas          | Southwest Airlines Co.
+ Indianapolis           | Indiana        | GoJet Airlines LLC d/b/a United Express
+ Indianapolis           | Indiana        | Southwest Airlines Co.
+ Indianapolis           | Indiana        | United Air Lines Inc.
+ Kalispell              | Montana        | SkyWest Airlines Inc.
+ Kansas City            | Missouri       | Southwest Airlines Co.
+ Las Vegas              | Nevada         | Southwest Airlines Co.
+ Louisville             | Kentucky       | GoJet Airlines LLC d/b/a United Express
+ Louisville             | Kentucky       | United Parcel Service
+ Madison                | Wisconsin      | United Air Lines Inc.
+ Medford                | Oregon         | United Air Lines Inc.
+ Memphis                | Tennessee      | Federal Express Corporation
+ Memphis                | Tennessee      | SkyWest Airlines Inc.
+ Milwaukee              | Wisconsin      | Frontier Airlines Inc.
+ Milwaukee              | Wisconsin      | Southwest Airlines Co.
+ Milwaukee              | Wisconsin      | United Air Lines Inc.
+ Minneapolis            | Minnesota      | GoJet Airlines LLC d/b/a United Express
+ Minneapolis            | Minnesota      | SkyWest Airlines Inc.
+ Minneapolis            | Minnesota      | Sun Country Airlines d/b/a MN Airlines
+ Minot                  | North Dakota   | SkyWest Airlines Inc.
+ Nashville              | Tennessee      | Southwest Airlines Co.
+ Newark                 | New Jersey     | United Air Lines Inc.
+ Norfolk                | Virginia       | Southwest Airlines Co.
+ North Bend/Coos Bay    | Oregon         | SkyWest Airlines Inc.
+ Oklahoma City          | Oklahoma       | SkyWest Airlines Inc.
+ Ontario                | California     | United Air Lines Inc.
+ Palm Springs           | California     | SkyWest Airlines Inc.
+ Phoenix                | Arizona        | American Airlines Inc.
+ Phoenix                | Arizona        | Southwest Airlines Co.
+ Portland               | Oregon         | United Air Lines Inc.
+ Raleigh/Durham         | North Carolina | United Air Lines Inc.
+ Salina                 | Kansas         | Great Lakes Aviation Ltd.
+ Salt Lake City         | Utah           | United Air Lines Inc.
+ San Antonio            | Texas          | Southwest Airlines Co.
+ San Francisco          | California     | Southwest Airlines Co.
+ San Jose               | California     | United Air Lines Inc.
+ Santa Ana              | California     | Frontier Airlines Inc.
+ Santa Barbara          | California     | SkyWest Airlines Inc.
+ Seattle                | Washington     | United Air Lines Inc.
+ Sioux Falls            | South Dakota   | Trans States Airlines
+ Sioux Falls            | South Dakota   | United Air Lines Inc.
+ Spokane                | Washington     | SkyWest Airlines Inc.
+ St. Louis              | Missouri       | Republic Airlines
+ St. Louis              | Missouri       | Southwest Airlines Co.
+ Tucson                 | Arizona        | SkyWest Airlines Inc.
+ Tulsa                  | Oklahoma       | SkyWest Airlines Inc.
+ Tulsa                  | Oklahoma       | Southwest Airlines Co.
+ Tulsa                  | Oklahoma       | Trans States Airlines
+ Wichita                | Kansas         | SkyWest Airlines Inc.
+(72 rows)
+
+
+postgres=#

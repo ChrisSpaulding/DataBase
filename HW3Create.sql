@@ -4,7 +4,6 @@ CREATE TABLE StateTable (
     FIPS int,
     State_Name varchar(50),
 	PRIMARY KEY (State_Abrv)
-	
 );
 
 --fk = state_abrv
