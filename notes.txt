@@ -1,0 +1,46 @@
+Benefits of Relational Database
+	persistant data
+	concurrency 
+	integration
+	standard model-sql 
+	
+Cons: 
+
+Impedance Mismatch
+	our physical database doesn't match the model 
+	you cant have nested databases
+	you can't have lists
+
+	
+	OODBMS
+		JAVA
+		
+	Dal - data access layer- interum between the database and the application's needs. fancy name for a kludge 
+	
+Why NoSQL
+
+	Scale up 
+		more and bigger hardware $$
+			more staff 
+			more network money
+			Clusters of cheeper systems
+				flexible 
+				distributive 
+				
+			Characteristics
+				no relational model
+				runs on clusters
+				open source
+				schemaless
+				21st century web estates 
+				Polyglot Persistence 
+				
+Four types of NoSQL Databases
+	Key/value -Big hash table 
+	Document-based -MongoDB Humongous 
+	Colus-based -cassandra
+	Graph-based Neo41
+	
+	
+
+Jason

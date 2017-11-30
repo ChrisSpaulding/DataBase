@@ -1,0 +1,28 @@
+Flight_Number,OriginCityName,OriginCityState,OriginCityCountry,DestCityName,DestCityName,DestCityCountry
+1,Toronto,Ontario,Canada,Montreal,Quebec,Canada
+2,Toronto,Ontario,Canada,New York,New York,United States
+3,Toronto,Ontario,Canada,Chicago,Ohio,United States
+4,Toronto,Ontario,Canada,London,England,England
+5,Toronto,Ontario,Canada,Endinburgh,Scotland,Scotland
+6,Montreal,Quebec,Canada,Toronto,Ontario,Canada
+7,Montreal,Quebec,Canada,London,England,England
+8,Montreal,Quebec,Canada,Endinburgh,Scotland,Scotland
+9,New York,New York,United States,Toronto,Ontario,Canada
+10,New York,New York,United States,Chicago,Ohio,United States
+11,Chicago,Ohio,United States,Toronto,Ontario,Canada
+12,Chicago,Ohio,United States,New York,New York,United States
+13,London,England,England,Toronto,Ontario,Canada
+14,London,England,England,Endinburgh,Scotland,Scotland
+15,London,England,England,Paris,Île-de-France ,France
+16,London,England,England,Nice,Alpes-Côte d'Azur ,France
+17,Endinburgh,Scotland,Scotland,Toronto,Ontario,Canada
+18,Endinburgh,Scotland,Scotland,Montreal,Quebec,Canada
+19,Endinburgh,Scotland,Scotland,London,England,England
+20,Endinburgh,Scotland,Scotland,Paris,Île-de-France ,France
+21,Endinburgh,Scotland,Scotland,Nice,Alpes-Côte d'Azur ,France
+22,Paris,Île-de-France ,France,London,England,England
+23,Paris,Île-de-France ,France,Endinburgh,Scotland,Scotland
+24,Paris,Île-de-France ,France,Nice,Alpes-Côte d'Azur ,France
+25,Nice,Alpes-Côte d'Azur ,France,London,England,England
+26,Nice,Alpes-Côte d'Azur ,France,Endinburgh,Scotland,Scotland
+27,Nice,Alpes-Côte d'Azur ,France,Paris,Île-de-France ,France

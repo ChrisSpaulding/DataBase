@@ -1,0 +1,2 @@
+no errorhino error
+ zipcode contains non didget as pos 3
