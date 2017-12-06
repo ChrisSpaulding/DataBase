@@ -2,6 +2,8 @@ package javafrontend;
 
 //Format taken from David A. 
 
+//ADD SETTER FOR PORTABILITY
+
 import com.sun.org.apache.xpath.internal.SourceTree;
 import java.sql.Connection;
 import java.sql.Connection;
@@ -18,17 +20,17 @@ public class JavaFrontEnd {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
                             "bob", "123");
-            InfoGetter IG = new InfoGetter();
-            boolean goodData=false;
-            while(!goodData){
-               goodData= IG.getData();
-            }
+            SqlRequest SQLrequest = new SqlRequest();
+            //SQLrequest.addCustomer();
+            SelectFlight sf = new SelectFlight();
+            sf.selectFlight();
             
+            c.createStatement();
             
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
-            System.exit(0);
+           
         }
 
         System.out.println("Opened database successfully");

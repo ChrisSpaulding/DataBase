@@ -7,8 +7,7 @@ import java.io.*;
  *
  * @author chris_000
  */
-public class InfoGetter {
-
+public class PersonInfoGetter {
     String error;
     Scanner reader;
     String firstname;
@@ -19,18 +18,34 @@ public class InfoGetter {
     String zipcode;
     String phone;
     String email;
+    String country;
 
-    InfoGetter() {
+    PersonInfoGetter() {
         error = "";
         reader = new Scanner(System.in);
+        firstname="";
+        lastname="";
+        address="";
+        city ="";
+        state= "";
+        zipcode="";
+        phone="";
+        email="";
+        country="";
+    
     }
     
     
+    public boolean getName(){
+        this.firstname= this.askFirstName();
+        this.lastname= this.askLastName();
+        return this.ErrorFinder();
+    }
     
-    public boolean getData(){
+    public boolean getAllData(){
        
         try{
-        FileWriter pw = new FileWriter("C:\\Users\\chris_000\\Documents\\School\\Database\\JavaFrontEnd\\HW6.error.txt", true); 
+        FileWriter pw = new FileWriter("HW6.error.txt", true); 
         askCust();
         boolean errors= ErrorFinder();
         if (errors){
@@ -61,10 +76,15 @@ public class InfoGetter {
         zipcode = askZipCode();
         phone = askPhone();
         email = askEmail();
+        country= askCountry();
 
         System.out.println(firstname + lastname + address + city + state + zipcode + phone + email);
     }
 
+    private String askCountry(){
+        System.out.println( "Please enter your country");
+        return reader.nextLine();
+    }
     private String askEmail() {
         System.out.println(" Please enter your email address");
         return reader.nextLine();
@@ -106,15 +126,22 @@ public class InfoGetter {
     }
 
     private boolean ErrorFinder() {
-        boolean error = false;
-        error = checkLastName();
-        error = checkAddress();
-        error = checkCity();
-        error = checkState();
-        error = checkZip();
-        error = checkPhone();
-        error = checkEmail();
-        return error;
+        boolean errors = false;
+        if(!this.lastname.equals("")){
+        errors = checkLastName();}
+        if(! this.address.equals("")){
+        errors = checkAddress();}
+        if(!this.city.equals("")){
+        errors = checkCity();}
+        if(!this.state.equals("")){
+        errors = checkState();}
+        if(!this.zipcode.equals("")){
+        errors = checkZip();}
+        if(!this.phone.equals("")){
+        errors = checkPhone();}
+        if(!this.email.equals("")){
+        errors = checkEmail();}
+        return errors;
     }
 
     private boolean checkLastName() {
@@ -194,4 +221,37 @@ public class InfoGetter {
         }
         return false;
     }
+    
+    public String getCountry(){
+        return this.country;
+    }
+    public String getAddress(){
+        return this.address;
+    }
+    
+    public String getFirstname(){
+        return firstname;
+    }
+    
+    public String getLastname(){
+        return lastname;
+    }
+    
+    public String getCity(){
+        return city;
+    }
+    public String getState(){
+        return state;
+    }
+    public String getZipcode(){
+        return zipcode;
+    }
+    public String getPhone(){
+        return phone;
+    }
+    public String getEmail(){
+        return email;
+    }
+    
 }
+
