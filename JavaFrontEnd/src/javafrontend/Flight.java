@@ -19,7 +19,7 @@ public class Flight {
 
     Flight(){
         this.flightNumber=-1;
-        this.AirlineName="BA";
+        this.AirlineName="";
         this.DepartureDay=-1;
         this.DepartureMonth=-1;
         this.DepartureYear=-1;

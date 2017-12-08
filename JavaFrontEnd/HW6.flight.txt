@@ -1,0 +1,7 @@
+Passenger Name= chris spaulding
+Paid for by: chris spaulding
+Airline: BA
+ Departure Date and Time: 5-3-2018 10:30:00
+ Arival Time:04:30:00
+ Departing Airport: Nice
+ Destination Airport: Paris

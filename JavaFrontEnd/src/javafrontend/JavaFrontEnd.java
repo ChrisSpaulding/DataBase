@@ -27,7 +27,7 @@ public class JavaFrontEnd {
             Flight currentFlight = new Flight();
             
             System.out.println("If you are a returning customer please enter your "
-                    + "Customer ID number");
+                    + "Customer ID number otherwise enter -1");
             int ID= reader.nextInt();
             Customer customer = new Customer(currentFlight);
             if(!customer.existingCustomer(ID)){
@@ -42,6 +42,7 @@ public class JavaFrontEnd {
             SelectFlight sf = new SelectFlight(currentFlight);
             currentFlight=sf.createTicket();
             currentFlight.setPaymentPerson(currentFlight.getTicketPerson());
+           
             sqlStatement= "Insert into Flights(Unique_Flight_number,"
                     + " Airline_Name, DepartureDate, PaymentPerson, TicketPerson,"
                     + " BookingNumber) VALUES (\'"+currentFlight.getFlightNumber()+
@@ -50,6 +51,9 @@ public class JavaFrontEnd {
                     currentFlight.getTicketPerson()+"\',\'"+currentFlight.getBookingNumber()
                     +"\');";
             stmt.executeUpdate(sqlStatement);
+            
+            TicketPrinter TP = new TicketPrinter(currentFlight);
+            TP.printTicket();
             
         } catch (Exception e) {
             e.printStackTrace();

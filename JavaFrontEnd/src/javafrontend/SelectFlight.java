@@ -64,6 +64,8 @@ public class SelectFlight {
             }
             String origenCity=UI;
             
+             Airlines air= new Airlines();
+            ticket.setAirlineName(air.pickAirline(origenCity));
             sqlStatement = "select Destcityname from flightnumber where origincityname like \'" +UI+"\'";
             re= stmt.executeQuery(sqlStatement);
             RSet.clear();

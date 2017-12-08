@@ -45,7 +45,7 @@ public class PersonInfoGetter {
     public boolean getAllData(){
        
         try{
-        FileWriter pw = new FileWriter("HW6.error.txt", true); 
+        FileWriter pw = new FileWriter("HW6.error", true); 
         askCust();
         boolean errors= ErrorFinder();
         if (errors){
