@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.util.Date;
 /**
  *
  * @author chris_000
@@ -18,11 +18,21 @@ import java.util.logging.Logger;
 public class SelectFlight {
     
     Scanner in;
+    Flight ticket;
     
-    SelectFlight(){
+    SelectFlight(Flight currentFlight){
         in= new Scanner(System.in);
+        ticket=currentFlight;
     }
-    public boolean selectFlight(){
+    
+    public Flight createTicket(){
+        selectFlight();
+        setValidTicketDate();
+        return this.ticket;
+    }
+    
+    
+    public void selectFlight(){
     
     Connection c = null;
     try {
@@ -73,18 +83,21 @@ public class SelectFlight {
             sqlStatement ="select flightnumber from flightnumber where OriginCityName like\'"+origenCity+"\' and"
                     + " DestCityName like \'"+destCity+"\';";
             re= stmt.executeQuery(sqlStatement);
-            if(re.first()){
-            System.out.println(re.getInt("FlightNumber"));
-                    }
             
+            if(re.first()){
+            ticket.setflightNumber(re.getInt("FlightNumber"));
+            }
+            else {
+            System.out.print("Might not be connected to a database or no flight found");}
             
             //booking number = current time as int
-            
-        }
+            Date date = new Date();
+            Long BN=date.getTime();
+            ticket.setBookingNumber(BN.intValue());
+    }
         catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
-            return false;
         }
         finally {
         if(c!=null){
@@ -94,8 +107,7 @@ public class SelectFlight {
                 Logger.getLogger(SelectFlight.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-    return true;
+        }
     }
     
     private boolean checkForString(String in, ArrayList al){
@@ -105,5 +117,21 @@ public class SelectFlight {
             return true;
         }
         return false;
+    }
+    
+    
+    private void setValidTicketDate() {
+        while(ticket.getDepartureDay()==-1 || ticket.getDepartureMonth()==-1|| ticket.getDepartureYear()==-1){
+              System.out.println("Please enter the day you would like to fly as a number");
+            int day= in.nextInt();
+            System.out.println("Please enter the year you would like to fly");
+            int year= in.nextInt();
+            System.out.println("Please enter the month you would like to fly as a number");
+            int month = in.nextInt();
+          
+            ticket.setDepartureDay(day);
+            ticket.setDepartureMonth(month);
+            ticket.setDepartureYear(year);
+        }
     }
 }

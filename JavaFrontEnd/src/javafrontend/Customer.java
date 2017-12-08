@@ -6,12 +6,16 @@ import java.sql.*;
  *
  * @author chris_000
  */
-public class SqlRequest {
+public class Customer {
     
-    SqlRequest(){
-        
+    Flight currentFlight;
+    
+    Customer(Flight x){
+        currentFlight=x;
     }
-    public void addCustomer(){
+    
+    
+    public Flight addCustomer(){
     Connection c = null;
         try {
             String  sqlStatement="";
@@ -48,8 +52,7 @@ public class SqlRequest {
                 }
             }
             
-            System.out.println("\n" +personKey);
-                
+               
             
             sqlQuery= "select CityName from City where CityName like \'"+pig.getCity()+"\' and StateName like \'"+pig.getState()+"\' and CountryName like \'"+ pig.getCountry()+"\';";
             re = stmt.executeQuery(sqlQuery);
@@ -70,6 +73,8 @@ public class SqlRequest {
             
                 
             stmt.executeUpdate(sqlmailingAddress);
+            currentFlight.setTicketPerson(personKey);
+            return currentFlight;
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
@@ -77,7 +82,7 @@ public class SqlRequest {
         }
 
         System.out.println("Opened database successfully");
-
+    return currentFlight;
     }
     
     public String createPerson(){
@@ -86,4 +91,16 @@ public class SqlRequest {
         return pig.firstname +" "+pig.lastname;
     }
 
+    public boolean existingCustomer(int ID) throws Exception{
+         String  sqlStatement="";
+            
+            Class.forName("org.postgresql.Driver");
+            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
+                            "bob", "123");
+            c.createStatement();
+            Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            sqlStatement = "select Person_key from Person where Person_key="+ID+";"; 
+           ResultSet  re = stmt.executeQuery(sqlStatement);
+           return re.first();
+    }
 }
