@@ -1,5 +1,5 @@
 
-package javafrontend;
+
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package javafrontend;
+
 
 import java.util.Scanner;
 import java.io.*;
@@ -176,7 +176,7 @@ public class PersonInfoGetter {
             }
         }
         if (zipcode.length()!=5){
-            error = error + "\n zipcade is not 5 didgets long";
+            error = error + "\n zipcode is not 5 didgets long";
             return true;
         }
         return false;

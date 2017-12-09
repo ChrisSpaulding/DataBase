@@ -1,5 +1,5 @@
 
-package javafrontend;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Date;
+import java.lang.Exception;
 /**
  *
  * @author chris_000
@@ -27,14 +28,14 @@ public class SelectFlight {
         this.DBC=dbc;
     }
     
-    public Flight createTicket(){
+    public Flight createTicket() throws Exception{
         selectFlight();
         setValidTicketDate();
         return this.ticket;
     }
     
     
-    public void selectFlight(){
+    public void selectFlight() throws Exception{
     
     Connection c = null;
     try {
@@ -91,7 +92,9 @@ public class SelectFlight {
             ticket.setflightNumber(re.getInt("FlightNumber"));
             }
             else {
-            System.out.print("Might not be connected to a database or no flight found");}
+            System.out.print("Might not be connected to a database or no flight found");
+            Exception e = new Exception ("no flight found");
+            throw  e;}
             
             //booking number = current time as int
             Date date = new Date();
