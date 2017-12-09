@@ -16,9 +16,11 @@ import java.util.logging.Logger;
 public class TicketPrinter {
 
     Flight ticket;
+    DBCreds DBC;
 
-    TicketPrinter(Flight nextFlight) {
+    TicketPrinter(Flight nextFlight,DBCreds DBC) {
         ticket = nextFlight;
+        this.DBC=DBC;
     }
 
     public boolean printTicket() {
@@ -26,6 +28,7 @@ public class TicketPrinter {
         try {
             FileWriter FW = new FileWriter("HW6.flight", true);
             String check=formatTicket();
+            FW.append("\n");
             FW.append(check);
             FW.close();
             return true;
@@ -64,8 +67,8 @@ public class TicketPrinter {
         String sqlStatement = "";
 
         Class.forName("org.postgresql.Driver");
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
-                "bob", "123");
+        
+            Connection c= DriverManager.getConnection(DBC.getDataBaseLocation(),DBC.getUser(),DBC.getPW());
         Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
         sqlStatement = "select first_name, last_name from Person where Person_key=" + personKey;
@@ -80,8 +83,8 @@ public class TicketPrinter {
         String sqlStatement = "";
 
         Class.forName("org.postgresql.Driver");
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
-                "bob", "123");
+        
+            Connection c= DriverManager.getConnection(DBC.getDataBaseLocation(),DBC.getUser(),DBC.getPW());
         Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
         sqlStatement = "Select Departuretime from FlightNumber where FlightNumber ="
@@ -98,8 +101,8 @@ public class TicketPrinter {
         String sqlStatement = "";
 
         Class.forName("org.postgresql.Driver");
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
-                "bob", "123");
+        
+            Connection c= DriverManager.getConnection(DBC.getDataBaseLocation(),DBC.getUser(),DBC.getPW());
         Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
         sqlStatement = "Select ArivalTime from FlightNumber where FlightNumber ="
@@ -116,8 +119,8 @@ public class TicketPrinter {
         String sqlStatement = "";
 
         Class.forName("org.postgresql.Driver");
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
-                "bob", "123");
+        
+            Connection c= DriverManager.getConnection(DBC.getDataBaseLocation(),DBC.getUser(),DBC.getPW());
         Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
         sqlStatement = "Select OriginCityName from FlightNumber where FlightNumber ="
@@ -134,8 +137,7 @@ public class TicketPrinter {
     String sqlStatement = "";
 
         Class.forName("org.postgresql.Driver");
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
-                "bob", "123");
+            Connection c= DriverManager.getConnection(DBC.getDataBaseLocation(),DBC.getUser(),DBC.getPW());
         Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
         sqlStatement = "Select DestCityName from FlightNumber where FlightNumber ="

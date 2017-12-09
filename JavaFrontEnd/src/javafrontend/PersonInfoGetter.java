@@ -78,7 +78,6 @@ public class PersonInfoGetter {
         email = askEmail();
         country= askCountry();
 
-        System.out.println(firstname + lastname + address + city + state + zipcode + phone + email);
     }
 
     private String askCountry(){

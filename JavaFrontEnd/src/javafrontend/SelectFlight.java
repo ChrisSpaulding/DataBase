@@ -19,10 +19,12 @@ public class SelectFlight {
     
     Scanner in;
     Flight ticket;
+    DBCreds DBC;
     
-    SelectFlight(Flight currentFlight){
+    SelectFlight(Flight currentFlight, DBCreds dbc){
         in= new Scanner(System.in);
         ticket=currentFlight;
+        this.DBC=dbc;
     }
     
     public Flight createTicket(){
@@ -38,8 +40,7 @@ public class SelectFlight {
     try {
             String  sqlStatement="";
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cat",
-                            "bob", "123");
+            c= DriverManager.getConnection(DBC.getDataBaseLocation(),DBC.getUser(),DBC.getPW());
             c.createStatement();
             Statement stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             
